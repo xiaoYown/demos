@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "name": "系统主题",
+      "path": "/os-theme",
+      "port": 9000
+    },
+    {
+      "name": "模板",
+      "path": "/template",
+      "port": 9001
+    }
+  ]
+}

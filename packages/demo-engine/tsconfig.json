@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "bin",
+    "strict": true,
+    "allowJs": true,
+    "strictNullChecks": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "Node",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "baseUrl": "./src",
+    "newLine": "lf",
+    "types": [
+      "@types/node",
+    ]
+  },
+  "include": [
+    "src",
+    "typings.d.ts"
+  ],
+  "exclude": [
+    "./node_modules"
+  ],
+  "types": [
+    "node_modules/@types",
+    "typings.d.ts"
+  ]
+}

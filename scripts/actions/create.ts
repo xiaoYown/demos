@@ -180,9 +180,8 @@ async function create(): Promise<any> {
     message = result.message;
   }
 
-  folderCopy(resolve('packages/template'), resolve(`productions/${name}`));
+  folderCopy(resolve('template'), resolve(`productions/${name}`));
   setTimeout(() => {
-    console.log(typeof name, typeof nameZh);
     rewritePackage(name, nameZh);
     shell.exec(`cd ${resolve('productions/' + name)} && pnpm install`);
   }, 2000);

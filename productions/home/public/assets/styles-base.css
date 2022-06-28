@@ -433,9 +433,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* disable select */
 body {
-  -moz-user-select: none;
+  /* -moz-user-select: none;
   -webkit-user-select: none;
-  user-select: none;
+  user-select: none; */
 }
 
 

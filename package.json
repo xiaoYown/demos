@@ -1,6 +1,7 @@
 {
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "build:prepare": "pnpm --filter './packages/**' build",
     "scripts": "ts-node --project ./scripts/tsconfig.json -r ./scripts/node_modules/tsconfig-paths/register scripts",
     "commit": "git-cz",
     "lint": "npm run lint:es && npm run lint:prettier",

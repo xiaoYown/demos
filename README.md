@@ -1,1 +1,17 @@
-[INTRODUCTION](https://github.com/njt-tools-open/lang-manage/tree/master/lang-cli#readme)
+### Installation
+
+```sh
+pnpm install
+```
+
+### Create a new Demo
+
+```sh
+pnpm scripts create
+```
+
+### Start demos server
+
+```sh
+pnpm scripts start
+```

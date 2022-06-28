@@ -1,14 +1,9 @@
 {
   "routes": [
     {
-      "name": "系统主题",
-      "path": "/os-theme",
+      "name": "浏览器事件",
+      "path": "/browser-events",
       "port": 9000
-    },
-    {
-      "name": "模板",
-      "path": "/template",
-      "port": 9001
     }
   ]
 }

@@ -2,17 +2,9 @@ import { render } from 'solid-js/web';
 import { JSXElement, Show } from 'solid-js';
 import { createMutable } from 'solid-js/store';
 
-import DemoAdapter, { DemoAdapterOptions } from '@xv-demo/adapter';
+import DemoAdapter from '@xv-demo/adapter';
 
-import SidebarItemBase from './base';
 import App from './App';
-
-import styles from './main.module.css';
-
-interface VisComponentOptions {
-  el: HTMLElement;
-  onError: (error: Error) => void;
-}
 
 interface StoreModel {
   exist: boolean;
@@ -36,14 +28,14 @@ const Container = (props: { store: StoreModel; children: JSXElement }) => (
   <Show when={props.store.exist}>{props.children}</Show>
 );
 
-class SidebarItem extends DemoAdapter {
+class DemoEntry extends DemoAdapter {
   override mount = (): void => {
     const container = document.getElementById(this.container) as HTMLDivElement;
     mount();
     render(
       () => (
         <Container store={store}>
-          <App />
+          <App publicPath={this.publicPath} />
         </Container>
       ),
       container
@@ -55,4 +47,4 @@ class SidebarItem extends DemoAdapter {
   };
 }
 
-export default SidebarItem;
+export default DemoEntry;

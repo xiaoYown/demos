@@ -9,8 +9,9 @@ class DemoAdapter {
     this.container = options.container;
   }
 
-  public publicPath: string = '';
-  public container: string = '';
+  public publicPath = '';
+
+  public container = '';
 
   public mount = () => {};
 

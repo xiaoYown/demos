@@ -5,17 +5,14 @@ import type DemoAdapter from '@xv-demo/adapter';
 
 const plugins = new Map<string, DemoAdapter>();
 
-const getPublicPath = (port: string) => {
-  return `http://${window.location.hostname}:${port}/`;
-};
+const getPublicPath = (port: string) =>
+  `http://${window.location.hostname}:${port}/`;
 
-const getJsResourceUrl = (port: string) => {
-  return `${getPublicPath(port)}main.js?stamp=${Date.now()}`;
-};
+const getJsResourceUrl = (port: string) =>
+  `${getPublicPath(port)}main.js?stamp=${Date.now()}`;
 
-const getCssResourceUrl = (port: string) => {
-  return `${getPublicPath(port)}main.css?stamp=${Date.now()}`;
-};
+const getCssResourceUrl = (port: string) =>
+  `${getPublicPath(port)}main.css?stamp=${Date.now()}`;
 
 const insertCss = (name: string, src: string) => {
   const identity = 'data-style-id';

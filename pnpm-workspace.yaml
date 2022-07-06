@@ -2,3 +2,4 @@ packages:
   - scripts
   - packages/**
   - productions/**
+  - independence/**

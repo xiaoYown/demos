@@ -1,4 +1,4 @@
-import { Component, createSignal, onMount, Show } from 'solid-js';
+import { Component, createSignal, Show } from 'solid-js';
 
 import classes from './App.module.css';
 
@@ -46,14 +46,14 @@ const App: Component<AppProps> = props => {
         const sizeList = getSizeList(getArrLen());
         /* js cal start */
         let startTime = Date.now();
-        let result = calSizeScale(sizeList, 0.698);
+        calSizeScale(sizeList, 0.698);
         setJsTime(Date.now() - startTime);
         /* js cal end */
 
         startTime = Date.now();
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        result = calSizeZoom(sizeList, 0.698);
+        calSizeZoom(sizeList, 0.698);
         setWasmTime(Date.now() - startTime);
         setIsCalculating(false);
       }, 10);

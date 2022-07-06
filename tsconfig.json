@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2015.promise",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "es2015.promise", "esnext"],
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
@@ -28,20 +23,10 @@
     "baseUrl": "./src",
     "newLine": "lf",
     "paths": {
-      "@root": [
-        "./"
-      ],
-      "@root/*": [
-        "./*"
-      ]
+      "@root": ["./"],
+      "@root/*": ["./*"]
     }
   },
-  "include": [
-    "src",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
+  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "exclude": ["./node_modules"]
 }

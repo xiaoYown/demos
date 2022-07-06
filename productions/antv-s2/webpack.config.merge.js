@@ -2,6 +2,11 @@ const path = require('path');
 
 console.log(path.resolve('src/main.tsx'));
 module.exports = {
+  performance: {
+    hints: false,
+    maxAssetSize: 5242880000,
+    maxEntrypointSize: 5242880000,
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
   },

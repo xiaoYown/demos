@@ -16,26 +16,12 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "moduleResolution": "Node",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "./src",
     "newLine": "lf",
-    "types": [
-      "@types/node",
-    ]
+    "types": ["@types/node"]
   },
-  "include": [
-    "src",
-    "typings.d.ts"
-  ],
-  "exclude": [
-    "./node_modules"
-  ],
-  "types": [
-    "node_modules/@types",
-    "typings.d.ts"
-  ]
+  "include": ["src", "typings.d.ts"],
+  "exclude": ["./node_modules"],
+  "types": ["node_modules/@types", "typings.d.ts"]
 }

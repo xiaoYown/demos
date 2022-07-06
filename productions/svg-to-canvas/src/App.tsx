@@ -28,7 +28,7 @@ const svgContent = `
 </svg>
 `;
 
-const App: Component = props => {
+const App: Component = () => {
   onCleanup(() => {});
 
   onMount(() => {

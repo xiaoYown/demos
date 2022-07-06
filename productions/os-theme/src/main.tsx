@@ -2,16 +2,9 @@ import { render } from 'solid-js/web';
 import { JSXElement, Show } from 'solid-js';
 import { createMutable } from 'solid-js/store';
 
-import DemoAdapter, { DemoAdapterOptions } from '@xv-demo/adapter';
+import DemoAdapter from '@xv-demo/adapter';
 
 import App from './App';
-
-import styles from './main.module.css';
-
-interface VisComponentOptions {
-  el: HTMLElement;
-  onError: (error: Error) => void;
-}
 
 interface StoreModel {
   exist: boolean;

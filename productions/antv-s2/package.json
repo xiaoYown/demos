@@ -1,6 +1,6 @@
 {
-  "name": "web3",
-  "nameZh": "web3",
+  "name": "antv-s2",
+  "nameZh": "antv-s2",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -33,6 +33,7 @@
     "android >=4"
   ],
   "dependencies": {
+    "@antv/s2": "^1.22.0",
     "@xv-demo/adapter": "workspace:^0.0.0",
     "solid-js": "^1.3.13"
   }

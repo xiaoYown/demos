@@ -2,6 +2,7 @@
 
 .demo-nav {
   display: flex;
+  flex-flow: wrap;
   justify-content: flex-start;
   width: 800px;
   padding: 60px 0;
@@ -9,7 +10,13 @@
 }
 
 .demo-nav-item {
-  width: 33%;
+  box-sizing: border-box;
+  width: 33.33%;
   padding: 4px 6px;
+  margin-bottom: 6px;
   text-align: center;
+}
+
+.demo-nav-item:hover {
+  background-color: #efefef;
 }

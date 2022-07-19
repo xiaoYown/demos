@@ -9,3 +9,5 @@ packages/*/node_modules
 # bundle files
 bin
 dist
+
+home/routes.json

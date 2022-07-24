@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+      "name": "antv-s2",
+      "path": "/antv-s2",
+      "port": 9000
+    },
+    {
+      "name": "浏览器事件",
+      "path": "/browser-events",
+      "port": 9001
+    },
+    {
+      "name": "系统主题",
+      "path": "/os-theme",
+      "port": 9002
+    },
+    {
+      "name": "svg2canvas",
+      "path": "/svg-to-canvas",
+      "port": 9003
+    },
+    {
+      "name": "wasm",
+      "path": "/wasm",
+      "port": 9004
+    }
+  ]
+}

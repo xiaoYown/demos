@@ -1,4 +1,3 @@
-import child_process from 'child_process';
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import * as net from 'net';
 import path from 'path';
@@ -6,6 +5,9 @@ import path from 'path';
 const shell = require('shelljs');
 const term = require('term-launcher');
 const inquirer = require('inquirer');
+
+const transformDemoName = (name: string) =>
+  name.replace('@demo-production/', '');
 
 // 获取未占用端口
 export const getUnusedPort = (port: number): Promise<number> =>
@@ -60,8 +62,8 @@ function generateRoutesFile(folders: string[], ports: Record<string, number>) {
     const { name, nameZh } = pkgJson;
     return {
       name: nameZh,
-      path: `/${name}`,
-      port: ports[name],
+      path: `/${transformDemoName(name)}`,
+      port: ports[transformDemoName(name)],
     };
   });
   const fileContent = {
@@ -111,7 +113,7 @@ async function start(): Promise<any> {
 
       return {
         name: nameZh,
-        value: name,
+        value: transformDemoName(name),
       };
     });
 
@@ -135,19 +137,20 @@ async function start(): Promise<any> {
 
   const shellDuration = 3000;
 
-  const promises = commands.map((command, index) => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        term.launchTerminal(...command);
-        console.log(
-          '[DEMO ENGINE]:',
-          new Date().toLocaleString(),
-          'Folder ' + command[1]
-        );
-        resolve(null);
-      }, index * shellDuration);
-    });
-  });
+  const promises = commands.map(
+    (command, index) =>
+      new Promise(resolve => {
+        setTimeout(() => {
+          term.launchTerminal(...command);
+          console.log(
+            '[DEMO ENGINE]:',
+            new Date().toLocaleString(),
+            `Folder ${command[1]}`
+          );
+          resolve(null);
+        }, index * shellDuration);
+      })
+  );
 
   Promise.all(promises).then(() => {
     console.log('[DEMO ENGINE]:', 'Demos server are running');

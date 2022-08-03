@@ -15,7 +15,7 @@ const isFolder = (name: string): boolean => {
 
 function folderMk(folder: string) {
   return new Promise(resolve => {
-    let isPathToExist = fs.existsSync(folder);
+    const isPathToExist = fs.existsSync(folder);
     if (!isPathToExist || !fs.statSync(folder).isDirectory()) {
       fs.mkdir(folder, resolve);
     } else {
@@ -28,15 +28,13 @@ function folderCopy(pathFrom: string, pathTo: string): Promise<any> {
   return new Promise(resolve => {
     if (fs.existsSync(pathFrom) && fs.statSync(pathFrom).isDirectory()) {
       folderMk(pathTo).then(() => {
-        let dirLs = fs.readdirSync(pathFrom).map(file => {
-          return {
-            name: file,
-            isCopyed: false,
-          };
-        });
+        const dirLs = fs.readdirSync(pathFrom).map(file => ({
+          name: file,
+          isCopyed: false,
+        }));
         dirLs.forEach(fileInfo => {
-          let originPath = path.join(pathFrom, './' + fileInfo.name);
-          let targetPath = path.join(pathTo, './' + fileInfo.name);
+          const originPath = path.join(pathFrom, `./${fileInfo.name}`);
+          const targetPath = path.join(pathTo, `./${fileInfo.name}`);
 
           if (/node_modules/.test(originPath)) return;
 
@@ -69,7 +67,7 @@ const rewritePackage = (name: string, nameZh: string) => {
     }) as string
   );
 
-  pkgJson.name = name;
+  pkgJson.name = `@demo-production/${name}`;
   pkgJson.nameZh = nameZh;
 
   writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2), {
@@ -160,21 +158,21 @@ async function create(): Promise<any> {
 
   while (status === 'fail') {
     console.log('[DEMO ENGINE]:', message);
-    let result = await createDemoNameQuestion();
+    const result = await createDemoNameQuestion();
     name = result.data;
     status = result.status;
     message = result.message;
   }
 
   let nameZh = '';
-  let result = await createDemoNameZhQuestion();
+  const result = await createDemoNameZhQuestion();
   nameZh = result.data;
   status = result.status;
   message = result.message;
 
   while (status === 'fail') {
     console.log('[DEMO ENGINE]:', message);
-    let result = await createDemoNameZhQuestion();
+    const result = await createDemoNameZhQuestion();
     nameZh = result.data;
     status = result.status;
     message = result.message;
@@ -183,7 +181,7 @@ async function create(): Promise<any> {
   folderCopy(resolve('template'), resolve(`productions/${name}`));
   setTimeout(() => {
     rewritePackage(name, nameZh);
-    shell.exec(`cd ${resolve('productions/' + name)} && pnpm install`);
+    shell.exec(`cd ${resolve(`productions/${name}`)} && pnpm install`);
   }, 2000);
 }
 

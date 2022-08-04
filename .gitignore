@@ -10,4 +10,4 @@ packages/*/node_modules
 bin
 dist
 
-home/routes.json
+productions/home/routes.json

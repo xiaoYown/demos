@@ -12,14 +12,17 @@ class Log {
   };
 
   public info = (text: string): void => {
+    console.info(text);
     this.append('info', text);
   };
 
   public warn = (text: string): void => {
+    console.warn(text);
     this.append('warn', text);
   };
 
   public error = (text: string): void => {
+    console.error(text);
     this.append('error', text);
   };
 

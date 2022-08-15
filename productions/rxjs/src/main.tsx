@@ -1,20 +1,10 @@
 import { render } from 'solid-js/web';
 import { JSXElement, Show } from 'solid-js';
-import { createMutable } from 'solid-js/store';
 
 import DemoAdapter from '@xv-demo/adapter';
 
+import { store, StoreModel } from './store';
 import App from './App';
-
-interface StoreModel {
-  exist: boolean;
-}
-
-const createDefaultValue = (): StoreModel => ({
-  exist: false,
-});
-
-const store = createMutable<StoreModel>(createDefaultValue());
 
 const mount = () => {
   store.exist = true;
@@ -30,6 +20,9 @@ const Container = (props: { store: StoreModel; children: JSXElement }) => (
 
 class DemoEntry extends DemoAdapter {
   override mount = (): void => {
+    // 数据存储
+    store.publicPath = this.publicPath;
+    // 容器渲染
     const container = document.getElementById(this.container) as HTMLDivElement;
     mount();
     render(

@@ -4,7 +4,7 @@ import { MessageModel } from '../log/message';
 import Log from '../log';
 import LogElement from '../log/element';
 
-const Schedulers: Component<DemoProps> = props => {
+const DemoSchedulers: Component<DemoProps> = props => {
   const [getMessage, setMessage] = createSignal<MessageModel[]>([]);
   const log = new Log();
 
@@ -46,4 +46,4 @@ const Schedulers: Component<DemoProps> = props => {
   );
 };
 
-export default Schedulers;
+export default DemoSchedulers;

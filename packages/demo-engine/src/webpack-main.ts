@@ -31,6 +31,9 @@ export const formatWebpackConfig = (config: PluginCompileConfigModel) => {
       allowedHosts: 'all',
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Headers':
+          'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild',
       },
       port: 9000,
       static: {
@@ -86,7 +89,10 @@ export const formatWebpackConfig = (config: PluginCompileConfigModel) => {
                 // sourceMap: !isProd(config.mode),
                 modules: {
                   mode: 'local',
-                  localIdentName: `${config.classPrefix}_[local]`,
+                  localIdentName: `${config.classPrefix.replace(
+                    /\\/g,
+                    '_'
+                  )}_[local]`,
                 },
               },
             },

@@ -28,6 +28,10 @@ class Log {
 
   public all = (): MessageModel[] => this.message.all();
 
+  public clean = (): void => {
+    this.message.clean();
+  };
+
   public destroy = (): void => {
     this.message.clean();
   };

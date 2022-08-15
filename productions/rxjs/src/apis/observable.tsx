@@ -1,26 +1,30 @@
 import { Component, createSignal, onCleanup, onMount } from 'solid-js';
-import { forkJoin, timer, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MessageModel } from '../log/message';
 import Log from '../log';
 import LogElement from '../log/element';
 
-const DemoForkJoin: Component<DemoProps> = props => {
+const DemoObservable: Component<DemoProps> = props => {
   const [getMessage, setMessage] = createSignal<MessageModel[]>([]);
   const log = new Log();
 
   onMount(() => {
     props.bindStart(() => {
-      const observable = forkJoin([
-        of(1, 2, 3, 4),
-        Promise.resolve(8),
-        timer(2000),
-      ]);
+      const observable = new Observable(subscriber => {
+        subscriber.next(1);
+        subscriber.next(2);
+        subscriber.next(3);
+        setTimeout(() => {
+          subscriber.next(4);
+          subscriber.complete();
+        }, 1000);
+      });
       observable.subscribe({
         next: value => {
           log.info(String(value));
         },
         complete: () => {
-          log.info('This is how it ends!');
+          log.info('complete!');
           setMessage(log.all());
         },
       });
@@ -38,4 +42,4 @@ const DemoForkJoin: Component<DemoProps> = props => {
   );
 };
 
-export default DemoForkJoin;
+export default DemoObservable;

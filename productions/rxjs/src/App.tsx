@@ -1,6 +1,9 @@
 import { Component } from 'solid-js';
+import Observable from './apis/observable';
 import Schedulers from './apis/schedulers';
 import ForkJoin from './apis/fork-join';
+import DemoAjax from './apis/ajax';
+import DemoCombineLastest from './apis/combine-latest';
 
 import classes from './App.module.css';
 
@@ -32,8 +35,11 @@ const DemoItem = ({ component: Cmp }: { component: Component<DemoProps> }) => {
 
 const App: Component = () => (
   <div class={classes.container}>
-    <DemoItem component={Schedulers} />
+    <DemoItem component={Observable} />
     <DemoItem component={ForkJoin} />
+    <DemoItem component={Schedulers} />
+    <DemoItem component={DemoAjax} />
+    <DemoItem component={DemoCombineLastest} />
   </div>
 );
 

@@ -1,6 +1,6 @@
 {
-  "name": "@demo-production/web-component",
-  "nameZh": "web-component",
+  "name": "@demo-production/spectrum",
+  "nameZh": "spectrum",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -34,7 +34,6 @@
   ],
   "dependencies": {
     "@xv-demo/adapter": "workspace:^0.0.0",
-    "solid-element": "^1.4.8",
     "solid-js": "^1.3.13"
   }
 }

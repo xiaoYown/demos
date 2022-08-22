@@ -407,9 +407,6 @@ importers:
       commitizen: 4.2.4
       typescript: 4.7.3
 
-  productions/wasm/public/xv/pkg:
-    specifiers: {}
-
   productions/web-component:
     specifiers:
       '@babel/core': ^7.17.8

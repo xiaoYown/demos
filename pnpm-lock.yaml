@@ -310,6 +310,7 @@ importers:
       '@babel/preset-typescript': ^7.16.7
       '@types/jest': ^27.0.2
       '@types/node': ^16.10.1
+      '@types/wavesurfer.js': ^6.0.3
       '@xv-demo/adapter': workspace:^0.0.0
       '@xv-demo/engine': workspace:^1.0.0
       babel-loader: ^8.2.4
@@ -317,9 +318,12 @@ importers:
       commitizen: ^4.2.4
       solid-js: ^1.3.13
       typescript: ^4.4.3
+      wavesurfer.js: ^6.2.0
     dependencies:
+      '@types/wavesurfer.js': 6.0.3
       '@xv-demo/adapter': link:../../packages/demo-adapter
       solid-js: 1.4.3
+      wavesurfer.js: 6.2.0
     devDependencies:
       '@babel/core': 7.18.10
       '@babel/plugin-proposal-class-properties': 7.17.12_@babel+core@7.18.10
@@ -3616,6 +3620,10 @@ packages:
     resolution: {integrity: sha512-TF8aoF5cHcLO7W7403blM7L1T+6NF3XMyN3fxyUolq2uOcFeicG/khQg/dGxiCJWoAcmYulYN7LYSRKO54IXaA==}
     dev: false
 
+  /@types/debounce/1.2.1:
+    resolution: {integrity: sha512-epMsEE85fi4lfmJUH/89/iV/LI+F5CvNIvmgs5g5jYFPfhO2S/ae8WSsLOKWdwtoaZw9Q2IhJ4tQ5tFCcS/4HA==}
+    dev: false
+
   /@types/eslint-scope/3.7.3:
     resolution: {integrity: sha512-PB3ldyrcnAicT35TWPs5IcwKD8S333HMaa2VVv4+wdvebJkjWuW/xESoB8IwRcog8HYVYamb1g/R31Qv5Bx03g==}
     dependencies:
@@ -3741,6 +3749,12 @@ packages:
   /@types/systemjs/6.1.1:
     resolution: {integrity: sha512-d1M6eDKBGWx7RbYy295VEFoOF9YDJkPI959QYnmzcmeaV+SP4D0xV7dEh3sN5XF3GvO3PhGzm+17Z598nvHQuQ==}
     dev: true
+
+  /@types/wavesurfer.js/6.0.3:
+    resolution: {integrity: sha512-5Sb5s3pEkOmDosaaP1DWp1Unnx8HhVorm5608TIVdT5jCMvJ6eqM19UD8n7DEbJ7rzreS9RqHmzR8TlcdQBvbA==}
+    dependencies:
+      '@types/debounce': 1.2.1
+    dev: false
 
   /@types/ws/8.5.3:
     resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
@@ -9890,6 +9904,10 @@ packages:
     dependencies:
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.10
+
+  /wavesurfer.js/6.2.0:
+    resolution: {integrity: sha512-yuOteX+RKgJl4p5V+YNflm79QRNFWpNo0UHtKaGf1G05qMNChfbcJU0MZYL7+OJTHgYszYqN3dgUXjugYd/Iew==}
+    dev: false
 
   /wbuf/1.7.3:
     resolution: {integrity: sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==}

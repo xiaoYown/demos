@@ -6,6 +6,10 @@
   padding-left: 8px;
 }
 
+.line {
+  border-top: 1px solid #bfbfbf;
+}
+
 .audio-wrapper {
   display: flex;
   justify-content: space-between;

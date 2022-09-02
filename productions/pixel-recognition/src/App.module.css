@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.demo-container {
+  display: flex;
+  background-color: #efefef;
+}

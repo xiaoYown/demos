@@ -1,6 +1,6 @@
 {
-  "name": "@demo-production/spectrum",
-  "nameZh": "spectrum",
+  "name": "@demo-production/pixel-recognition",
+  "nameZh": "像素识别",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -33,9 +33,8 @@
     "android >=4"
   ],
   "dependencies": {
-    "@types/wavesurfer.js": "^6.0.3",
     "@xv-demo/adapter": "workspace:^0.0.0",
-    "solid-js": "^1.3.13",
-    "wavesurfer.js": "^6.2.0"
+    "color-convert": "^2.0.1",
+    "solid-js": "^1.3.13"
   }
 }

@@ -6,13 +6,13 @@ import { store } from '../store';
 const convert = require('color-convert');
 
 /** 粒度系数 */
-const PARTICLE_SIZE = 8;
+const PARTICLE_SIZE = 2;
 /** 灰度 */
 const GRAY_LEVEL = 10;
 /** 白点上限 */
-const WHITE_UPPER_LEVER = 40;
+const WHITE_UPPER_LEVER = 60;
 /** 图片名 */
-const PICTRUE_NAME = '04.jpg';
+const PICTRUE_NAME = '06.jpeg';
 
 const { devicePixelRatio: dpr } = window;
 
@@ -109,7 +109,7 @@ const resizeCanvas = (
   width: number,
   height: number
 ) => {
-  const targetWidth = 600;
+  const targetWidth = 1200;
   // eslint-disable-next-line no-param-reassign
   canvasOriginElement.style.width = `${targetWidth}px`;
   // eslint-disable-next-line no-param-reassign

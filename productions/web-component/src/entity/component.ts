@@ -17,4 +17,6 @@ function registerTextReverse(): void {
   isRegistered = true;
 }
 
+registerTextReverse();
+
 export default registerTextReverse;

@@ -10,7 +10,7 @@
     "lint:prettier": "prettier --list-different \"**/*.{ts,tsx,less,json,yml,yaml,md}\"",
     "fix": "npm run fix:es && npm run fix:prettier",
     "fix:es": "eslint --ext ..ts,.tsx ./ --cache --quiet --fix",
-    "fix:prettier": "prettier --write \"**/*.{ts,tsx,less,json,yml,yaml,md}\""
+    "fix:prettier": "prettier --write \"**/*.{ts,tsx,less,json,yml,yaml,md}\" --cache"
   },
   "workspaces": [
     "scripts",

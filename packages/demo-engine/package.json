@@ -25,6 +25,7 @@
     "colored-progress-bar-webpack-plugin": "^1.2.4",
     "commander": "^9.0.0",
     "css-loader": "^6.2.0",
+    "express-serve-static-core": "^0.1.1",
     "mini-css-extract-plugin": "^2.1.0",
     "postcss": "^8.4.8",
     "postcss-loader": "^6.2.1",

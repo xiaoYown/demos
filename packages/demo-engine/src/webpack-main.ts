@@ -100,7 +100,7 @@ export const formatWebpackConfig = (config: PluginCompileConfigModel) => {
               loader: require.resolve('postcss-loader'),
               options: {
                 postcssOptions: {
-                  plugins: ['postcss-preset-env'],
+                  plugins: [require.resolve('postcss-preset-env')],
                 },
               },
             },

@@ -1,8 +1,15 @@
 import { Component, onCleanup } from 'solid-js';
-// import registerTextReverse from './entity/component';
+import '@ui5/webcomponents/dist/Button';
+import './entity/component';
 // import TextReverseSolid from './entity/component-solid'
 
 import classes from './App.module.css';
+
+/**
+ * TODO: 待处理
+ * 1. typescript types
+ * 2. css in js
+ */
 
 const App: Component = () => {
   // onMount(() => {
@@ -10,9 +17,16 @@ const App: Component = () => {
   // });
   onCleanup(() => {});
 
+  const handleClick = () => {
+    console.log(9999);
+  };
+
   return (
     <div class={classes.container}>
-      {/* <text-reverse></text-reverse> */}
+      <ui5-button foo={5} onClick={handleClick}>
+        This is a button
+      </ui5-button>
+      <text-reverse text="text"></text-reverse>
       {/* <text-reverse-solid /> */}
     </div>
   );

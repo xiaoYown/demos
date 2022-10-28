@@ -1,6 +1,6 @@
 {
-  "name": "@demo-production/rxjs",
-  "nameZh": "RxJS",
+  "name": "@demo-production/css-in-js",
+  "nameZh": "css-in-js",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -34,7 +34,6 @@
   ],
   "dependencies": {
     "@xv-demo/adapter": "workspace:^0.0.0",
-    "rxjs": "^7.5.6",
     "solid-js": "^1.6.0"
   }
 }

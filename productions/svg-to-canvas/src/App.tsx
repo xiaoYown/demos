@@ -4,8 +4,6 @@ import classes from './App.module.css';
 import { convert } from './utils/svg-to-canvas';
 
 const IDENTITY_SVG = 'DEMO_ELEMENT_SVG';
-const IDENTITY_CANVAS = 'DEMO_ELEMENT_CANVAS';
-const IDENTITY_IMAGE = 'DEMO_ELEMENT_IMAGE';
 
 const svgContent = `
 <?xml version="1.0" standalone="no"?>
@@ -29,6 +27,9 @@ const svgContent = `
 `;
 
 const App: Component = () => {
+  let elementCanvasWrapper: HTMLDivElement | undefined;
+  let elementImage: HTMLImageElement | undefined;
+
   onCleanup(() => {});
 
   onMount(() => {
@@ -38,10 +39,7 @@ const App: Component = () => {
       svg: document.querySelector(`#${IDENTITY_SVG}`) as SVGAElement,
     })
       .then(canvas => {
-        const elementCanvas = document.querySelector(`#${IDENTITY_CANVAS}`);
-        const elementImage = document.querySelector(`#${IDENTITY_IMAGE}`);
-        elementCanvas?.setAttribute('innerHTML', '');
-        elementCanvas?.appendChild(canvas);
+        elementCanvasWrapper?.appendChild(canvas);
         elementImage?.setAttribute('src', canvas.toDataURL('image/png'));
       })
       .catch(error => {
@@ -54,10 +52,10 @@ const App: Component = () => {
       <h2>SVG</h2>
       <div class={classes['container-item']} innerHTML={svgContent}></div>
       <h2>CANVAS</h2>
-      <div class={classes['container-item']} id={IDENTITY_CANVAS}></div>
+      <div class={classes['container-item']} ref={elementCanvasWrapper}></div>
       <h2>IMAGE</h2>
       <div class={classes['container-item']}>
-        <img id={IDENTITY_IMAGE} alt="demo" />
+        <img ref={elementImage} alt="demo" />
       </div>
     </div>
   );

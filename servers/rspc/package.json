@@ -1,0 +1,12 @@
+{
+  "name": "@demo-server/rspc",
+  "version": "1.0.0",
+  "description": "",
+  "types": "dist/index.d.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist/*.d.ts"
+  ]
+}

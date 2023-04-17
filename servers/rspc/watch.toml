@@ -1,0 +1,4 @@
+[[watch]]
+paths = ["src/**/*.rs"]
+
+command = "cargo run"

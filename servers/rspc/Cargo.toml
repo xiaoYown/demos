@@ -1,0 +1,17 @@
+[package]
+edition = "2021"
+name = "rspc-sample"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package.metadata]
+scripts = {dev = "cargo watch"}
+
+[dependencies]
+async-stream = "0.3.4"
+axum = {version = "0.6.12", features = ["ws"]}
+serde = {version = "1.0", features = ["derive"]}
+rspc = {version = "0.1.3", features = ["axum"]}
+tokio = {version = "1.27.0", features = ["full"]}
+tower-http = {version = "0.4.0", default-features = false, features = ["cors"]}

@@ -40,12 +40,14 @@ function folderCopy(pathFrom: string, pathTo: string): Promise<any> {
 
           if (fs.statSync(originPath).isDirectory()) {
             folderCopy(originPath, targetPath).then(() => {
+              // eslint-disable-next-line no-param-reassign
               fileInfo.isCopyed = true;
               if (!dirLs.find(__file => !__file.isCopyed)) {
                 resolve('');
               }
             });
           } else {
+            // eslint-disable-next-line no-param-reassign
             fileInfo.isCopyed = true;
             fs.copyFile(originPath, targetPath, 1, () => {
               if (!dirLs.find(__file => !__file.isCopyed)) {
@@ -75,107 +77,66 @@ const rewritePackage = (name: string, nameZh: string) => {
   });
 };
 
-const createDemoNameQuestion = (): Promise<{
-  status: 'ok' | 'fail';
-  message?: string;
-  data: string;
-}> => {
-  const prompt = inquirer.createPromptModule();
+const isExistDemo = (name: string) =>
+  isFolder(path.resolve(`productions/${name}`));
 
-  return new Promise((resolve, reject) => {
-    prompt([
+interface CreateInfoModel {
+  name: string;
+  nameZh: string;
+}
+
+const prepareCreateInfo = (): Promise<CreateInfoModel> =>
+  new Promise((resolve, reject) => {
+    const questions = [
       {
         type: 'input',
         name: 'name',
         message: 'demo name',
       },
-    ])
-      .then((answers: { name: string }) => {
-        if (!answers) {
-          resolve({
-            status: 'fail',
-            message: 'Demo name is must!',
-            data: '',
-          });
-          return;
-        }
-        if (isFolder(path.resolve(`productions/${answers.name}`))) {
-          resolve({
-            status: 'ok',
-            message: `Demo ${answers.name} is exit.`,
-            data: '',
-          });
-          return;
-        }
-        resolve({
-          status: 'ok',
-          data: answers.name,
-        });
-      })
-      .catch((error: any) => {
-        reject(error);
-      });
-  });
-};
-
-const createDemoNameZhQuestion = (): Promise<{
-  status: 'ok' | 'fail';
-  message?: string;
-  data: string;
-}> => {
-  const prompt = inquirer.createPromptModule();
-
-  return new Promise((resolve, reject) => {
-    prompt([
       {
         type: 'input',
-        name: 'name_zh',
+        name: 'nameZh',
         message: 'demo zh name',
       },
-    ])
-      .then((answers: { name_zh: string }) => {
-        if (!answers) {
-          resolve({
-            status: 'fail',
-            message: 'Demo zh name is must!',
-            data: '',
-          });
-          return;
-        }
-        resolve({
-          status: 'ok',
-          data: answers.name_zh,
-        });
+    ];
+
+    const prompt = inquirer.createPromptModule();
+
+    prompt(questions)
+      .then((answers: CreateInfoModel) => {
+        resolve(answers);
       })
       .catch((error: any) => {
         reject(error);
       });
   });
-};
+
+/* 校验填写 */
+const validateCreateInfo = ({
+  name,
+  nameZh,
+}: CreateInfoModel): Promise<{ status: 'ok' | 'fail'; message?: string }> =>
+  new Promise((resolve, reject) => {
+    if (!name || !nameZh) {
+      reject(new Error('name/nameZh 字段必须填写'));
+      return;
+    }
+
+    if (isExistDemo(name)) {
+      reject(new Error('demo 已存在'));
+      return;
+    }
+
+    resolve({ status: 'ok' });
+  });
 
 async function create(): Promise<any> {
-  let { data: name, status, message } = await createDemoNameQuestion();
+  const createInfo = await prepareCreateInfo();
+  const { status } = await validateCreateInfo(createInfo);
+  const { name, nameZh } = createInfo;
 
-  while (status === 'fail') {
-    console.log('[DEMO ENGINE]:', message);
-    const result = await createDemoNameQuestion();
-    name = result.data;
-    status = result.status;
-    message = result.message;
-  }
-
-  let nameZh = '';
-  const result = await createDemoNameZhQuestion();
-  nameZh = result.data;
-  status = result.status;
-  message = result.message;
-
-  while (status === 'fail') {
-    console.log('[DEMO ENGINE]:', message);
-    const result = await createDemoNameZhQuestion();
-    nameZh = result.data;
-    status = result.status;
-    message = result.message;
+  if (status !== 'ok') {
+    return;
   }
 
   folderCopy(resolve('template'), resolve(`productions/${name}`));

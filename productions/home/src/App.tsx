@@ -1,35 +1,26 @@
 import { Component } from 'solid-js';
-import { Routes, Route, Router, Link } from 'solid-app-router';
+import {  Route, Router } from '@solidjs/router';
 
-import styles from './App.module.css';
+import  './App.css';
 
 import routesJson from '../routes.json';
 import Adapter from './demo-adapter/adapter';
 
-interface RouteModel {
-  name: string;
-  path: string;
-  port: number;
-}
-
-const DemoList = ({ routes }: { routes: RouteModel[] }) => (
-  <div class={styles['demo-nav']}>
-    {routes.map(item => (
-      <span class={styles['demo-nav-item']}>
-        <Link href={`/demo${item.path}/${item.port}`}>{item.name}</Link>
+const DemoList = () => (
+  <div class={'demo-nav'}>
+    {routesJson.routes.map(item => (
+      <span class={'demo-nav-item'}>
+        <a href={`/demo${item.path}/${item.port}`}>{item.name}</a>
       </span>
     ))}
   </div>
 );
 
 const App: Component = () => (
-  <div class={styles.App}>
+  <div class='App'>
     <Router>
-      <Routes>
-        <Route path="/" element={<DemoList routes={routesJson.routes} />} />
-        <Route path={'/demo/:name/:port'} element={<Adapter />} />
-        <Route path="*" element={<section>404</section>} />
-      </Routes>
+        <Route path="/" component={DemoList} />
+        <Route path={'/demo/:name/:port'} component={Adapter} />
     </Router>
   </div>
 );

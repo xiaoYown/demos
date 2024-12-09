@@ -6,6 +6,8 @@ import DemoAdapter from '@xv-demo/adapter';
 
 import App from './App';
 
+import './main.css';
+
 interface StoreModel {
   exist: boolean;
 }

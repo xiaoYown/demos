@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@demo-server/rspc": "workspace:^1.0.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.2.0"
+    "@demo-server/rspc": "workspace:^",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
   },
   "dependencies": {
-    "@rspc/client": "^0.1.3"
+    "@rspc/client": "^0.3.1"
   }
 }

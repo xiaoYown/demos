@@ -1,5 +1,5 @@
 import { onCleanup, onMount } from 'solid-js';
-import { useParams } from 'solid-app-router';
+import { useParams } from '@solidjs/router';
 
 import type DemoAdapter from '@xv-demo/adapter';
 

@@ -87,13 +87,13 @@ export const formatWebpackConfig = (config: PluginCompileConfigModel) => {
                 esModule: true,
                 importLoaders: 1,
                 // sourceMap: !isProd(config.mode),
-                modules: {
-                  mode: 'local',
-                  localIdentName: `${config.classPrefix.replace(
-                    /\\/g,
-                    '_'
-                  )}_[local]`,
-                },
+                // modules: {
+                //   mode: 'local',
+                //   localIdentName: `${config.classPrefix.replace(
+                //     /\\/g,
+                //     '_'
+                //   )}_[local]`,
+                // },
               },
             },
             {

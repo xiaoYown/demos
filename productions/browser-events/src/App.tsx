@@ -3,7 +3,7 @@ import { Component, createSignal, For, onCleanup, Show } from 'solid-js';
 import OrientationEvent from './event-demos/orientation-event';
 import WheelEvent from './event-demos/wheel-event';
 
-import classes from './App.module.css';
+import './App.css';
 
 const events = [OrientationEvent, WheelEvent];
 
@@ -13,10 +13,10 @@ const App: Component = _props => {
   onCleanup(() => {});
 
   return (
-    <div class={classes.container}>
-      <div class={classes.nav}>
+    <div class='container'>
+      <div class='nav'>
         <Show when={getCurrentEvent()}>
-          <div class={classes['nav-item']} onClick={() => setCurrentEvent('')}>
+          <div class='nav-item' onClick={() => setCurrentEvent('')}>
             Back
           </div>
         </Show>
@@ -24,7 +24,7 @@ const App: Component = _props => {
           <For each={events}>
             {item => (
               <span
-                class={classes['nav-item']}
+                class='nav-item'
                 onClick={() => setCurrentEvent(item.name)}
               >
                 {item.name}
